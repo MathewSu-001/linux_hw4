@@ -5,7 +5,8 @@ int ceil_ilog2(uint32_t x)
 {
     uint32_t r, shift;
 
-    x--; //x-1 
+    //x--; //x-1 
+    x -= !!x;
     r = (x > 0xFFFF) << 4;  //if x > 2^16 ,r = 16                                                                                                                                  
     x >>= r;
     shift = (x > 0xFF) << 3; //if x > 2^8 ,shift = 8
